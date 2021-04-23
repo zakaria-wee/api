@@ -17,8 +17,8 @@ app.get('/student', function (req, res) {
     var url = 'mongodb+srv://zakaria:zakour72710@cluster0.khg9n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, db) {
         if (err) throw err;
-        var mydb = db.db('login')
-        mydb.collection("datarequired").find().toArray().then(result=>{
+        var mydb = db.db('signin')
+        mydb.collection("data").find().toArray().then(result=>{
             res.json(result)
         })
 
@@ -31,8 +31,8 @@ app.post('/deletedata', function (req, res) {
     var url = 'mongodb+srv://zakaria:zakour72710@cluster0.khg9n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, db) {
         if (err) throw err;
-        var mydb = db.db('login')
-        mydb.collection("datarequired").deleteOne({email:eamilTodelete}).then(()=>{
+        var mydb = db.db('signin')
+        mydb.collection("data").deleteOne({email:eamilTodelete}).then(()=>{
             res.json("done")
         })
     })
@@ -44,8 +44,8 @@ app.post('/dataset', function (req, res) {
     var url = 'mongodb+srv://zakaria:zakour72710@cluster0.khg9n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, db) {
         if (err) throw err;
-        var mydb = db.db('login')
-        mydb.collection("datarequired").insertOne(arrive).then(()=>{
+        var mydb = db.db('signin')
+        mydb.collection("data").insertOne(arrive).then(()=>{
             res.json("done")
         })
     })
