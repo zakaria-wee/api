@@ -2,6 +2,7 @@ const express = require('express')
 
 const app = express()
 const cors = require('cors');
+app.use(express.static("public"))
 
 app.use(cors());
 
@@ -49,10 +50,6 @@ app.post('/dataset', function (req, res) {
         })
     })
 })
-
-
-// use the express-static middleware
-app.use(express.static("public"))
 
 // start the server listening for requests
 app.listen(process.env.PORT || 3000, 
